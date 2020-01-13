@@ -2,12 +2,22 @@
 // feel free to change this component.js into TodoList.js
 import React from "react";
 
-import TodoForm from "./TodoForm";
+import Todo from "./Todo";
+import { tsAnyKeyword } from "@babel/types";
 
 const TodoList = props => {
+  // removeItem(e) {
+  //     this.props.clearCompleted(task);
+  // }
+  const sortedList = props.todoList.sort((a, b) => a.completed - b.completed);
   return (
     <div className="todo-list">
-      <TodoForm />
+      {props.todoList.map(item => (
+        <Todo key={item.id} item={item} toggleItem={props.toggleItem} />
+      ))}
+      <button className="clear-btn" onClick={props.clearCompleted}>
+        Clear Completed
+      </button>
     </div>
   );
 };
