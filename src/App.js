@@ -39,7 +39,6 @@ class App extends React.Component {
       todos: toDoList,
       life: 22
     };
-    this.clearCompleted = this.clearCompleted.bind(this);
   }
 
   toggleItem = id => {
@@ -58,11 +57,14 @@ class App extends React.Component {
       todos: newTodoList
     });
   };
-  clearCompleted(task) {
+  clearCompleted = () => {
+    const deleteTodoItem = this.state.todos.filter(
+      item => item.completed === false
+    );
     this.setState({
-      todos: this.state.todos.filter(el => el !== task.completed)
+      todos: deleteTodoItem
     });
-  }
+  };
 
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
