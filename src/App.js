@@ -23,11 +23,6 @@ const toDoList = [
     task: "Re do todo list",
     id: "126",
     completed: false
-  },
-  {
-    task: "Finish todo list",
-    id: "127",
-    completed: false
   }
 ];
 
@@ -57,6 +52,7 @@ class App extends React.Component {
       todos: newTodoList
     });
   };
+  //Delete item fromt to do
   clearCompleted = () => {
     const deleteTodoItem = this.state.todos.filter(
       item => item.completed === false
@@ -83,7 +79,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div>
+        <div className="header">
           <h1>To do List</h1>
           <TodoForm addItem={this.addItem} />
         </div>

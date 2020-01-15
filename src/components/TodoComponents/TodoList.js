@@ -3,12 +3,8 @@
 import React from "react";
 
 import Todo from "./Todo";
-import { tsAnyKeyword } from "@babel/types";
 
 const TodoList = props => {
-  // removeItem(e) {
-  //     this.props.clearCompleted(task);
-  // }
   const sortedList = props.todoList.sort((a, b) => a.completed - b.completed);
   return (
     <div className="todo-list">
